@@ -134,7 +134,6 @@
             @endforeach
             <br>
 
-            <a href="/studentform" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Add Student</a>
                 </div>
             </div>
         </div>
