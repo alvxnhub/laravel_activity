@@ -14,33 +14,34 @@
 
     <div>
         <label for="name">Name</label>
-        <input type="text" name="name">
+        <input type="text" name="name" placeholder = "Enter name">
         @error('name')
             <div style="color:red;">Min of 3 characters</div>
         @enderror
     </div>
 
     <br>
+    
+        <div>
+            <label for="age">Age</label>
+            <input type="number" name="age" placeholder = "Enter age">
+            @error('age')
+                <div style="color:red;">Must be 18 and above</div>
+            @enderror
+        </div>
+        <br>
 
-    <div>
-        <label for="email">Email</label>
-        <input type="email" name="email">
-        @error('email')
-            <div style="color:red;">Email is required and must be a valid email</div>
-        @enderror
-    </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder = "Enter email">
+            @error('email')
+                <div style="color:red;">Email is required, unique and must be a valid email</div>
+            @enderror
+        </div>
+        <br>
+        <button type="submit">Save</button>
 
-    <br>
-
-    <div>
-        <label for="age">Age</label>
-        <input type="number" name="age">
-        @error('age')
-            <div style="color:red;">Must be 18 and above</div>
-        @enderror
-    </div>
-    <br>
-    <button type="submit">Save</button>
+        <p><a href="/students">Back to Student List</a></p>
 </form>
 
 </body>
