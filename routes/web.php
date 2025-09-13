@@ -9,6 +9,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/students', function () {
+    return view('student');
+});
+Route::get('/studentform', function () {
+    return view('studentform');
+});
+
 // Exercise 1: Hello Laravel
 Route::get('/hello', function () {
     return ('Hello Laravel');
@@ -35,6 +42,8 @@ Route::get('/', [HomeController::class, 'index']);
 // Exercise 6: Model & CRUD
 Route::get('/students', [StudentController::class, 'index']);
 
+// Exercise 7: Form Handling
+Route::post('/students', [StudentController::class, 'store']);
 
 
 

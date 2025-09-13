@@ -9,6 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    
     // Exercise 5: Database & Migration
     public function up(): void
     {

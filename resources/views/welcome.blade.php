@@ -8,5 +8,8 @@
 <body>
     <!-- Exercise 4: Blade Template -->
     <h1>{{ $title }}</h1>
+    <p><a href="/students">View Student List</a></p>
+    
+
 </body>
 </html>

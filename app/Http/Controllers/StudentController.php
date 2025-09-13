@@ -21,4 +21,29 @@ class StudentController extends Controller
         return "Student ID: " . $id;
 
     }
+
+    // Exercise 7: Form Handling
+    public function create()
+    {
+        return view('studentform');
+    }
+
+    public function store(Request $request)
+    {
+        // Exercise 8: Validation
+        $validatedData = $request->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email|unique:students,email',
+            'age' => 'required|numeric|min:18',
+        ]);
+
+
+        $student = new Student();
+        $student->name = $validatedData['name'];
+        $student->age = $validatedData['age'];
+        $student->email = $validatedData['email'];
+        $student->save();
+
+        return redirect('/students');
+    }
 }

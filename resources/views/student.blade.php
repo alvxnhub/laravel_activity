@@ -15,7 +15,7 @@
                     <hr>
             
             @endforeach
-        
 
+    <a href="/studentform">Add Student</a>
 </body>
 </html>
