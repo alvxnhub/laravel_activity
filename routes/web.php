@@ -4,6 +4,7 @@ use App\Models\Student;
 use App\Models\Activity;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 
 Route::get('/', function () {
@@ -51,7 +52,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/students', [StudentController::class, 'store']);
 
 });
-// Exercise 9: Activity Log
+// Exercise 9: Activity 
 Route::get('/actlog', function () {
     $activities = Activity::latest()->get();
     return view('actlog', compact('activities'));

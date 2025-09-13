@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activity Log</title>
+    @vite('resources/css/app.css')
+    
 </head>
-<body>
-    <h1>Activity Log</h1>
+<body class="p-10">
+    <h1 class = "text-lg font-bold">Activity Log</h1>
 
-    <table border="1" cellpadding="10">
+    <table cellpadding="10" class="table-auto border-collapse border border-gray-300">
         <tr>
             <th>User ID</th>
             <th>Action</th>
@@ -21,6 +25,7 @@
                 <td>{{ $activity->created_at->format('Y-m-d H:i') }}</td>
             </tr>
         @endforeach
-    </table>
+    </table><br>
+    <a href="/dashboard" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-10">Back to Dashboard</a>
 </body>
 </html>
