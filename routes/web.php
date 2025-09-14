@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\Student;
+use App\Models\Activity;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 
 Route::get('/', function () {
@@ -31,7 +33,9 @@ Route::get('/contact', function () {
 Route::get('/greet/{name}', function ($name) {
     return ('Hello, ' . $name);
 });
+
 Route::middleware('auth')->group(function () {
+    
 // Exercise 3: Controller Basics
 Route::get('/students', [StudentController::class, 'index']);
 Route::get('/students/{id}', [App\Http\Controllers\StudentController::class, 'show']);
@@ -42,13 +46,19 @@ Route::get('/students/{id}', [App\Http\Controllers\StudentController::class, 'sh
 Route::get('/', [HomeController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
-// Exercise 6: Model & CRUD
-Route::get('/students', [StudentController::class, 'index']);
-
-// Exercise 7: Form Handling
-Route::post('/students', [StudentController::class, 'store']);
+    // Exercise 6: Model & CRUD
+    Route::get('/students', [StudentController::class, 'index']);
+    // Exercise 7: Form Handling
+    Route::post('/students', [StudentController::class, 'store']);
 
 });
+// Exercise 9: Activity 
+Route::get('/actlog', function () {
+    $activities = Activity::latest()->get();
+    return view('actlog', compact('activities'));
+});
+
+
 // Exercise 10: Authentication
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -60,6 +70,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
 });
+
+
+
+
 
 require __DIR__.'/auth.php';
 
